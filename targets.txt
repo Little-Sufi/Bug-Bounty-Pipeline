@@ -1,0 +1,5 @@
+
+# Sample Targets (LAB-ONLY!)
+# Replace with your own authorized targets!
+lab.example.com
+test.lab.org

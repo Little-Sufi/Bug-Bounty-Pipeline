@@ -1,0 +1,38 @@
+
+# Bug Bounty Program Rules
+# WARNING: ALWAYS FOLLOW THE TARGET PROGRAM'S RULES!
+# THIS FILE IS FOR AUTHORIZED LAB USE ONLY!
+
+general:
+  # General rules to follow
+  max_requests_per_second: 2
+  max_retries: 3
+  timeout: 300  # 5 minutes
+  respect_rate_limits: true
+  user_agent: "BugBountyPipeline/1.0 (+https://example.com/contact)"
+
+targets:
+  # Per-target rules (override general)
+  - domain: "lab.example.com"
+    max_requests_per_second: 1
+    allowed_methods: ["GET", "POST"]
+    disallowed_paths: ["/admin", "/internal"]
+    contact_email: "security@example.com"
+  - domain: "test.lab.org"
+    max_requests_per_second: 3
+    allowed_ports: [80, 443, 8080]
+
+script_overrides:
+  # Per-script overrides
+  "custom_xss_scanner.py":
+    payload_limit: 50
+  "custom_sqli_scanner.py":
+    time_based_sleep: 2
+  "owasp_top10_scanner.py":
+    timeout: 300
+
+forbidden:
+  # Forbidden actions
+  - "Denial of Service"
+  - "Data Exfiltration beyond scope"
+  - "Modifying production data"

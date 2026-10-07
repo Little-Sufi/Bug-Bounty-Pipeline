@@ -1,0 +1,194 @@
+[
+  {
+    "owasp_category": "A01: Broken Access Control",
+    "title": "Exposed Sensitive Path: /admin",
+    "description": "Path /admin is accessible without authentication",
+    "severity": "High",
+    "evidence": "Status: 200, Content length: 661",
+    "verification_steps": [
+      "GET /admin returned status 200",
+      "GET /invalid_path_f72594d1 returned status 200"
+    ],
+    "timestamp": "2026-07-18T22:04:17.848405"
+  },
+  {
+    "owasp_category": "A01: Broken Access Control",
+    "title": "Exposed Sensitive Path: /.htaccess",
+    "description": "Path /.htaccess is accessible without authentication",
+    "severity": "High",
+    "evidence": "Status: 200, Content length: 665",
+    "verification_steps": [
+      "GET /.htaccess returned status 200",
+      "GET /invalid_path_510df399 returned status 200"
+    ],
+    "timestamp": "2026-07-18T22:04:17.856381"
+  },
+  {
+    "owasp_category": "A01: Broken Access Control",
+    "title": "Exposed Sensitive Path: /.env",
+    "description": "Path /.env is accessible without authentication",
+    "severity": "High",
+    "evidence": "Status: 200, Content length: 660",
+    "verification_steps": [
+      "GET /.env returned status 200",
+      "GET /invalid_path_edb298a6 returned status 200"
+    ],
+    "timestamp": "2026-07-18T22:04:17.861643"
+  },
+  {
+    "owasp_category": "A01: Broken Access Control",
+    "title": "Exposed Sensitive Path: /config.php",
+    "description": "Path /config.php is accessible without authentication",
+    "severity": "High",
+    "evidence": "Status: 200, Content length: 666",
+    "verification_steps": [
+      "GET /config.php returned status 200",
+      "GET /invalid_path_d9b944d5 returned status 200"
+    ],
+    "timestamp": "2026-07-18T22:04:17.867177"
+  },
+  {
+    "owasp_category": "A01: Broken Access Control",
+    "title": "Exposed Sensitive Path: /web.config",
+    "description": "Path /web.config is accessible without authentication",
+    "severity": "High",
+    "evidence": "Status: 200, Content length: 666",
+    "verification_steps": [
+      "GET /web.config returned status 200",
+      "GET /invalid_path_c02028b9 returned status 200"
+    ],
+    "timestamp": "2026-07-18T22:04:17.872464"
+  },
+  {
+    "owasp_category": "A02: Cryptographic Failures",
+    "title": "Missing HSTS Header",
+    "description": "Strict-Transport-Security header not present - vulnerable to MITM attacks",
+    "severity": "Medium",
+    "evidence": "Response headers missing Strict-Transport-Security",
+    "verification_steps": [
+      "Made request to target"
+    ],
+    "timestamp": "2026-07-18T22:04:17.875153"
+  },
+  {
+    "owasp_category": "A02: Cryptographic Failures",
+    "title": "Missing CSP Header",
+    "description": "Content-Security-Policy header not present - vulnerable to XSS",
+    "severity": "Medium",
+    "evidence": "Response headers missing Content-Security-Policy",
+    "verification_steps": [
+      "Made request to target"
+    ],
+    "timestamp": "2026-07-18T22:04:17.875180"
+  },
+  {
+    "owasp_category": "A06: Vulnerable and Outdated Components",
+    "title": "Server Header Exposed: BaseHTTP/0.6 Python/3.14.6",
+    "description": "Server version information exposed - check for known vulnerabilities",
+    "severity": "Low",
+    "evidence": "Server header: BaseHTTP/0.6 Python/3.14.6",
+    "verification_steps": [
+      "Made request to target"
+    ],
+    "timestamp": "2026-07-18T22:04:17.980171"
+  },
+  {
+    "owasp_category": "A08: Software and Data Integrity Failures",
+    "title": "Exposed Dependency File: /package.json",
+    "description": "/package.json exposed - may reveal dependency vulnerabilities",
+    "severity": "Medium",
+    "evidence": "File contents: \n        <!DOCTYPE html>\n        <html>\n            <head>\n                <title>Test Lab - Vulnerable Target</title>\n            </head>\n            <body>\n                <h1>Test Lab - Vulnerable Target</h1>\n                <p>XSS test: test</p>\n                <p>SQLi test (ID): 1</p>\n         ",
+    "verification_steps": [
+      "Requested /package.json",
+      "Requested /composer.json",
+      "Requested /requirements.txt"
+    ],
+    "timestamp": "2026-07-18T22:04:18.014533"
+  },
+  {
+    "owasp_category": "A08: Software and Data Integrity Failures",
+    "title": "Exposed Dependency File: /composer.json",
+    "description": "/composer.json exposed - may reveal dependency vulnerabilities",
+    "severity": "Medium",
+    "evidence": "File contents: \n        <!DOCTYPE html>\n        <html>\n            <head>\n                <title>Test Lab - Vulnerable Target</title>\n            </head>\n            <body>\n                <h1>Test Lab - Vulnerable Target</h1>\n                <p>XSS test: test</p>\n                <p>SQLi test (ID): 1</p>\n         ",
+    "verification_steps": [
+      "Requested /package.json",
+      "Requested /composer.json",
+      "Requested /requirements.txt"
+    ],
+    "timestamp": "2026-07-18T22:04:18.017039"
+  },
+  {
+    "owasp_category": "A08: Software and Data Integrity Failures",
+    "title": "Exposed Dependency File: /requirements.txt",
+    "description": "/requirements.txt exposed - may reveal dependency vulnerabilities",
+    "severity": "Medium",
+    "evidence": "File contents: \n        <!DOCTYPE html>\n        <html>\n            <head>\n                <title>Test Lab - Vulnerable Target</title>\n            </head>\n            <body>\n                <h1>Test Lab - Vulnerable Target</h1>\n                <p>XSS test: test</p>\n                <p>SQLi test (ID): 1</p>\n         ",
+    "verification_steps": [
+      "Requested /package.json",
+      "Requested /composer.json",
+      "Requested /requirements.txt"
+    ],
+    "timestamp": "2026-07-18T22:04:18.019133"
+  },
+  {
+    "owasp_category": "A10: Server-Side Request Forgery",
+    "title": "Potential SSRF on Parameter: url",
+    "description": "Payload 'http://127.0.0.1:22' causes different response - possible SSRF",
+    "severity": "Critical",
+    "evidence": "Response snippet: \n        <!DOCTYPE html>\n        <html>\n            <head>\n                <title>Test Lab - Vulnerable Target</title>\n            </head>\n            <body>\n                <h1>Test Lab - Vulnerable Target</h1>\n                <p>XSS test: test</p>\n                <p>SQLi test (ID): 1</p>\n         ",
+    "verification_steps": [
+      "Sent SSRF payload: http://127.0.0.1:22",
+      "Sent invalid control payload"
+    ],
+    "timestamp": "2026-07-18T22:04:18.023896"
+  },
+  {
+    "owasp_category": "A10: Server-Side Request Forgery",
+    "title": "Potential SSRF on Parameter: target",
+    "description": "Payload 'http://127.0.0.1:22' causes different response - possible SSRF",
+    "severity": "Critical",
+    "evidence": "Response snippet: \n        <!DOCTYPE html>\n        <html>\n            <head>\n                <title>Test Lab - Vulnerable Target</title>\n            </head>\n            <body>\n                <h1>Test Lab - Vulnerable Target</h1>\n                <p>XSS test: test</p>\n                <p>SQLi test (ID): 1</p>\n         ",
+    "verification_steps": [
+      "Sent SSRF payload: http://127.0.0.1:22",
+      "Sent invalid control payload"
+    ],
+    "timestamp": "2026-07-18T22:04:18.029003"
+  },
+  {
+    "owasp_category": "A10: Server-Side Request Forgery",
+    "title": "Potential SSRF on Parameter: endpoint",
+    "description": "Payload 'http://127.0.0.1:22' causes different response - possible SSRF",
+    "severity": "Critical",
+    "evidence": "Response snippet: \n        <!DOCTYPE html>\n        <html>\n            <head>\n                <title>Test Lab - Vulnerable Target</title>\n            </head>\n            <body>\n                <h1>Test Lab - Vulnerable Target</h1>\n                <p>XSS test: test</p>\n                <p>SQLi test (ID): 1</p>\n         ",
+    "verification_steps": [
+      "Sent SSRF payload: http://127.0.0.1:22",
+      "Sent invalid control payload"
+    ],
+    "timestamp": "2026-07-18T22:04:18.033392"
+  },
+  {
+    "owasp_category": "A10: Server-Side Request Forgery",
+    "title": "Potential SSRF on Parameter: proxy",
+    "description": "Payload 'http://127.0.0.1:22' causes different response - possible SSRF",
+    "severity": "Critical",
+    "evidence": "Response snippet: \n        <!DOCTYPE html>\n        <html>\n            <head>\n                <title>Test Lab - Vulnerable Target</title>\n            </head>\n            <body>\n                <h1>Test Lab - Vulnerable Target</h1>\n                <p>XSS test: test</p>\n                <p>SQLi test (ID): 1</p>\n         ",
+    "verification_steps": [
+      "Sent SSRF payload: http://127.0.0.1:22",
+      "Sent invalid control payload"
+    ],
+    "timestamp": "2026-07-18T22:04:18.038744"
+  },
+  {
+    "owasp_category": "A10: Server-Side Request Forgery",
+    "title": "Potential SSRF on Parameter: uri",
+    "description": "Payload 'http://127.0.0.1:22' causes different response - possible SSRF",
+    "severity": "Critical",
+    "evidence": "Response snippet: \n        <!DOCTYPE html>\n        <html>\n            <head>\n                <title>Test Lab - Vulnerable Target</title>\n            </head>\n            <body>\n                <h1>Test Lab - Vulnerable Target</h1>\n                <p>XSS test: test</p>\n                <p>SQLi test (ID): 1</p>\n         ",
+    "verification_steps": [
+      "Sent SSRF payload: http://127.0.0.1:22",
+      "Sent invalid control payload"
+    ],
+    "timestamp": "2026-07-18T22:04:18.046774"
+  }
+]

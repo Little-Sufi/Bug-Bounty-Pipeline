@@ -1,0 +1,34 @@
+allowlist:
+  domains:
+  - .*\.lab$
+  - .*\.internal$
+  - .*\.local$
+  - .*\.test$
+  - .*\.invalid$
+  - ^lab-.*$
+  - ^test-.*$
+  - ^dev-.*$
+  - ^staging-.*$
+  - www.instagram.com
+  - https://pentest-ground.com/
+  - pentest-ground.com
+  ips:
+  - 127.0.0.1
+  - ::1
+  - 0.0.0.0
+report:
+  company_name: Your Lab Company Name
+  researcher_name: Your Name
+targets:
+- http://127.0.0.1:8080/?xss=test&id=1&file=index.html
+unsafe_mode: false
+
+headers:
+  user_agent: BugBountyPipeline/1.0 (Authorized Security Lab)
+  custom_headers:
+    X-Bug-Bounty: authorized-lab-test
+
+proxy:
+  enabled: false
+  http: http://127.0.0.1:8082
+  https: http://127.0.0.1:8082
